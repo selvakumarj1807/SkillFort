@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-mode="light_mode">
+{% load static %}
+
+<!-- Mirrored from dreamspos.dreamstechnologies.com/html/template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Mar 2025 06:24:47 GMT -->
+
+<head>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Skill Fort">
+	<meta name="keywords" content="Skill Fort">
+	<meta name="author" content="Skill Fort Technologies">
+	<meta name="robots" content="index, follow">
+	<title>{% block title %}{% endblock %}</title>
+
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'SillFortImages/SkillfortAppLogo.png' %}">
+
+	<!-- Apple Touch Icon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'SillFortImages/SkillfortAppLogo.png' %}">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
+	<!-- Datetimepicker CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/bootstrap-datetimepicker.min.css' %}">
+
+	<!-- animation CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+
+	<!-- Select2 CSS -->
+	<link rel="stylesheet" href="{% static 'assets/plugins/select2/css/select2.min.css' %}">
+
+	<!-- Daterangepikcer CSS -->
+	<link rel="stylesheet" href="{% static 'assets/plugins/daterangepicker/daterangepicker.css' %}">
+
+	<!-- Form Date PIckers CSS -->
+	<link rel="stylesheet" href="{% static 'assets/plugins/flatpickr/flatpickr.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap-datepicker/bootstrap-datepicker.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/plugins/daterangepicker/daterangepicker.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/plugins/jquery-timepicker/jquery-timepicker.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/plugins/pickr/pickr-themes.css' %}">
+
+
+	<!-- Tabler Icon CSS -->
+	<link rel="stylesheet" href="{% static 'assets/plugins/tabler-icons/tabler-icons.css' %}">
+
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
+
+	<!-- Color Picker Css -->
+	<link rel="stylesheet" href="{% static 'assets/plugins/%40simonwep/pickr/themes/nano.min.css' %}">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+	<!-- ✅ Include Bootstrap CSS -->
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert CDN -->
+
+	<style>
+		.error {
+			color: red;
+			font-size: 14px;
+		}
+	</style>
+</head>
+
+<body>
+	<!--
+	<div id="global-loader">
+		<div class="whirly-loader"> </div>
+	</div>
+	-->
+	<!-- Main Wrapper -->
+	<div class="main-wrapper">
+
+		<!-- Header -->
+		<div class="header">
+			<div class="main-header">
+				<!-- Logo -->
+				<div class="header-left active">
+					<a href="/" class="logo logo-normal">
+						<img src="{% static 'SillFortImages/skillfortpngR.png' %}" alt="Img">
+					</a>
+				</div>
+				<!-- /Logo -->
+				<a id="mobile_btn" class="mobile_btn" href="#sidebar">
+					<span class="bar-icon">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</a>
+
+				<!-- Header Menu -->
+				<ul class="nav user-menu">
+
+					<!-- Search -->
+
+					<!-- /Search -->
+
+					<!-- Select Store -->
+
+					<!-- /Select Store -->
+
+
+					<!-- /Flag -->
+
+
+					<!-- /Notifications -->
+
+
+					<!-- /Header Menu -->
+
+					<!-- Mobile Menu -->
+
+					<!-- /Mobile Menu -->
+			</div>
+		</div>
+		<!-- /Header -->
+
+		<!-- Sidebar -->
+		<div class="sidebar" id="sidebar">
+			<!-- Logo -->
+			<div class="sidebar-logo active">
+				<a href="index.html" class="logo logo-normal">
+					<img src="{% static 'SillFortImages/skillfortpngR.png' %}" alt="Img">
+				</a>
+				<a href="index.html" class="logo logo-white">
+					<img src="{% static 'SillFortImages/SkillfortAppLogo.png' %}" alt="Img">
+				</a>
+				<a href="index.html" class="logo-small">
+					<img src="{% static 'SillFortImages/SkillfortAppLogo.png' %}" alt="Img">
+				</a>
+				<a id="toggle_btn" href="javascript:void(0);">
+					<i data-feather="chevrons-left" class="feather-16"></i>
+				</a>
+			</div>
+			<!-- /Logo -->
+			<div class="modern-profile p-3 pb-0">
+				<div class="text-center rounded bg-light p-3 mb-4 user-profile">
+					<div class="avatar avatar-lg online mb-3">
+						<img src="{% static 'assets/img/customer/customer15.jpg' %}" alt="Img"
+							class="img-fluid rounded-circle">
+					</div>
+					<h6 class="fs-14 fw-bold mb-1">Adrian Herman</h6>
+					<p class="fs-12 mb-0">System Admin</p>
+				</div>
+				<div class="sidebar-nav mb-3">
+					<ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded nav-justified bg-transparent"
+						role="tablist">
+						<li class="nav-item"><a class="nav-link active border-0" href="#">Menu</a></li>
+						<li class="nav-item"><a class="nav-link border-0" href="chat.html">Chats</a></li>
+						<li class="nav-item"><a class="nav-link border-0" href="email.html">Inbox</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="sidebar-header p-3 pb-0 pt-2">
+				<div class="text-center rounded bg-light p-2 mb-4 sidebar-profile d-flex align-items-center">
+					<div class="avatar avatar-md onlin">
+						<img src="{% static 'assets/img/customer/customer15.jpg' %}" alt="Img"
+							class="img-fluid rounded-circle">
+					</div>
+					<div class="text-start sidebar-profile-info ms-2">
+						<h6 class="fs-14 fw-bold mb-1">Adrian Herman</h6>
+						<p class="fs-12">System Admin</p>
+					</div>
+				</div>
+				<div class="d-flex align-items-center justify-content-between menu-item mb-3">
+					<div>
+						<a href="index.html" class="btn btn-sm btn-icon bg-light">
+							<i class="ti ti-layout-grid-remove"></i>
+						</a>
+					</div>
+					<div>
+						<a href="chat.html" class="btn btn-sm btn-icon bg-light">
+							<i class="ti ti-brand-hipchat"></i>
+						</a>
+					</div>
+					<div>
+						<a href="email.html" class="btn btn-sm btn-icon bg-light position-relative">
+							<i class="ti ti-message"></i>
+						</a>
+					</div>
+					<div class="notification-item">
+						<a href="activities.html" class="btn btn-sm btn-icon bg-light position-relative">
+							<i class="ti ti-bell"></i>
+							<span class="notification-status-dot"></span>
+						</a>
+					</div>
+					<div class="me-0">
+						<a href="general-settings.html" class="btn btn-sm btn-icon bg-light">
+							<i class="ti ti-settings"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li class="submenu-open">
+							<h6 class="submenu-hdr">Enquiry</h6>
+							<ul>
+
+								<li><a href="/enquiry/enquiryForm/"><i
+											class="ti ti-file-stack fs-16 me-2"></i><span>Enquiry Form</span></a>
+								</li>
+
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /Sidebar -->
+
+		<!-- Horizontal Sidebar -->
+		<div class="sidebar sidebar-horizontal" id="horizontal-menu">
+			<div id="sidebar-menu-3" class="sidebar-menu">
+				<div class="main-menu">
+					<ul class="nav-menu">
+						<li class="submenu-open">
+							<h6 class="submenu-hdr">Enquiry</h6>
+							<ul>
+
+								<li><a href="/enquiry/enquiryForm/"><i
+											class="ti ti-file-stack fs-16 me-2"></i><span>Enquiry Form</span></a>
+								</li>
+
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /Horizontal Sidebar -->
+
+		<!-- Two Col Sidebar -->
+
+		<!-- /Two Col Sidebar -->
+
+		<div class="page-wrapper">
+			<div class="content">
+
+				{% block content %}
+				{% endblock %}
+
+			</div>
+			<div
+				class="copyright-footer d-flex align-items-center justify-content-between border-top bg-white gap-3 flex-wrap">
+				<p class="fs-13 text-gray-9 mb-0">2014 - 2025 &copy; Skill Fort. All Right Reserved</p>
+				<p>Designed & Developed By <a href="javascript:void(0);" class="link-primary">Skill Fort</a></p>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- /Main Wrapper -->
+
+	<!-- Add Stock -->
+
+	<!-- /Add Stock -->
+
+	<!---------------------------------------------->
+
+	<!-- jQuery -->
+	<script src="{% static 'assets/js/jquery-3.7.1.min.js' %}" type="58a0dcab275a5246eef40778-text/javascript"></script>
+
+	<!-- Bootstrap Core JS -->
+	<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+
+	<!-- Feather Icon JS -->
+	<script src="{% static 'assets/js/feather.min.js' %}" type="58a0dcab275a5246eef40778-text/javascript"></script>
+
+	<!-- Slimscroll JS -->
+	<script src="{% static 'assets/js/jquery.slimscroll.min.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+
+	<!-- Select2 JS -->
+	<script src="{% static 'assets/plugins/select2/js/select2.min.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+
+	<!-- Form Date PIckers JS -->
+	<script src="{% static 'assets/plugins/moment/moment.min.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+	<script src="{% static 'assets/plugins/flatpickr/flatpickr.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+	<script src="{% static 'assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+	<script src="{% static 'assets/plugins/daterangepicker/daterangepicker.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+	<script src="{% static 'assets/plugins/jquery-timepicker/jquery-timepicker.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+	<script src="{% static 'assets/plugins/pickr/pickr.js' %}" type="58a0dcab275a5246eef40778-text/javascript"></script>
+	<script src="{% static 'assets/plugins/%40simonwep/pickr/pickr.min.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+	<script src="{% static 'assets/js/forms-pickers.js' %}" type="58a0dcab275a5246eef40778-text/javascript"></script>
+
+
+
+	<script src="{% static 'assets/js/custom-select2.js' %}" type="58a0dcab275a5246eef40778-text/javascript"></script>
+	<!-- Color Picker JS -->
+	<script src="{% static 'assets/plugins/%40simonwep/pickr/pickr.es5.min.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+
+	<!-- Custom JS -->
+	<script src="{% static 'assets/js/theme-colorpicker.js' %}"
+		type="58a0dcab275a5246eef40778-text/javascript"></script>
+	<script src="{% static 'assets/js/script.js' %}" type="58a0dcab275a5246eef40778-text/javascript"></script>
+
+	<script src="{% static 'assets/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js' %}"
+		data-cf-settings="58a0dcab275a5246eef40778-|49" defer></script>
+	<script defer
+		src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+		integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+		data-cf-beacon='{"rayId":"9209efb40a527fe9","version":"2025.1.0","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"3ca157e612a14eccbb30cf6db6691c29","b":1}'
+		crossorigin="anonymous"></script>
+
+	<!-- ApexChart JS -->
+	<script src="{% static 'assets/plugins/apexchart/apexcharts.min.js' %}"
+		type="571a7950adf64534b40bf902-text/javascript"></script>
+	<script src="{% static 'assets/plugins/apexchart/chart-data.js' %}"
+		type="571a7950adf64534b40bf902-text/javascript"></script>
+
+	<!-- Chart JS -->
+	<script src="{% static 'assets/plugins/chartjs/chart.min.js' %}"
+		type="571a7950adf64534b40bf902-text/javascript"></script>
+	<script src="{% static 'assets/plugins/chartjs/chart-data.js' %}"
+		type="571a7950adf64534b40bf902-text/javascript"></script>
+
+	<!-- Daterangepikcer JS -->
+	<script src="{% static 'assets/js/moment.min.js' %}" type="571a7950adf64534b40bf902-text/javascript"></script>
+
+
+	<script defer
+		src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+		integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+		data-cf-beacon='{"rayId":"9209ee0139ec7fe9","version":"2025.1.0","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"3ca157e612a14eccbb30cf6db6691c29","b":1}'
+		crossorigin="anonymous"></script>
+
+
+</body>
+
+
+<!-- Mirrored from dreamspos.dreamstechnologies.com/html/template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Mar 2025 06:26:09 GMT -->
+
+</html>

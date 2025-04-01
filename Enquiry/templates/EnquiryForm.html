@@ -1,0 +1,365 @@
+{% extends "EnquiryBase.html" %}
+{% block title %} Student Enquiry Form {% endblock title %}
+{% block content %}
+
+<!-- Page Header -->
+<div class="page-header">
+    <div class="row">
+        <div class="col">
+            <h3 class="page-title">Student Enquiry Form</h3>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Enquiry Form</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /Page Header -->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Fill Your Details</h5>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'Enquiry:submit-enquiry' %}" method="POST" id="enquiryForm" novalidate>
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">DOB</label>
+                        <input type="text" class="form-control" placeholder="Month DD, YYYY"
+                            id="flatpickr-human-friendly" name="dob" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Mobile No</label>
+                        <input type="number" class="form-control" name="mobile" id="mobile">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email ID</label>
+                        <input type="email" class="form-control" name="email" id="email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Educational Qualification</label>
+                        <input type="text" class="form-control" name="education" id="education">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Year of Pass Out</label>
+                        <input type="text" class="form-control" name="passout_year" id="passout_year">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="course">Select Your Course</label>
+                        <select class="select" id="course" name="course">
+                            <option value="">-- Select Course --</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="data-science">Data Science</option>
+                            <option value="cyber-security">Cyber Security</option>
+                            <option value="cloud-computing">Cloud Computing</option>
+                            <option value="ai-ml">Artificial Intelligence & Machine Learning</option>
+                        </select>
+                        <span class="error"></span>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="d-block">Placements Required:</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="placement" value="yes" id="placementYes">
+                            <label class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="placement" value="no" id="placementNo">
+                            <label class="form-check-label">No</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="d-block">Are you Currently Working:</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="currently_working" value="yes"
+                                id="workingYes">
+                            <label class="form-check-label" for="workingYes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="currently_working" value="no"
+                                id="workingNo">
+                            <label class="form-check-label" for="workingNo">No</label>
+                        </div>
+                    </div>
+
+                    <!-- IT / Non-IT Section (Hidden by Default) -->
+                    <div class="mb-3" id="professionSection" style="display: none;">
+                        <div class="mb-3">
+                            <label class="d-block">Profession:</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="profession" value="it"
+                                    id="professionIT">
+                                <label class="form-check-label" for="professionIT">IT</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="profession" value="non-it"
+                                    id="professionNonIT">
+                                <label class="form-check-label" for="professionNonIT">Non-IT</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Company Name</label>
+                            <input type="text" class="form-control" name="company" id="company">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Designation</label>
+                            <input type="text" class="form-control" name="designation" id="designation">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Duration</label>
+
+                            <input type="text" class="form-control" placeholder="YYYY-MM-DD to YYYY-MM-DD"
+                                id="flatpickr-range" name="duration" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="d-block">PF:</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pf" value="yes" id="pfYes">
+                                <label class="form-check-label">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pf" value="no" id="pfNo">
+                                <label class="form-check-label">No</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">UAN No</label>
+                            <input type="text" class="form-control" name="uan" id="uan">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="d-block">Form 16:</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="form16" value="yes" id="form16Yes">
+                                <label class="form-check-label">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="form16" value="no" id="form16No">
+                                <label class="form-check-label">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control" name="address" id="address">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">PAN/Aadhar No</label>
+                        <input type="text" class="form-control" name="pan_aadhar" id="pan_aadhar">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Refer By</label>
+                        <input type="text" class="form-control" name="refer_by" id="refer_by">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Referer Mobile No</label>
+                        <input type="text" class="form-control" name="referer_mobile" name="referer_mobile">
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+                </form>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const workingYes = document.getElementById("workingYes");
+                        const workingNo = document.getElementById("workingNo");
+                        const professionSection = document.getElementById("professionSection");
+
+                        workingYes.addEventListener("change", function () {
+                            professionSection.style.display = "block";
+                        });
+
+                        workingNo.addEventListener("change", function () {
+                            professionSection.style.display = "none";
+                        });
+                    });
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ Include jQuery & Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ✅ Include jQuery Validation Plugin -->
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+        // Custom method for regex validation of duration format
+        $.validator.addMethod("durationFormat", function (value, element) {
+            return this.optional(element) || /^\d{4}-\d{2}-\d{2}\s+to\s+\d{4}-\d{2}-\d{2}$/.test(value);
+        }, "Enter duration in 'YYYY-MM-DD to YYYY-MM-DD' format");
+
+        $("#enquiryForm").validate({
+            rules: {
+                name: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                education: "required",
+                mobile: {
+                    required: true,
+                    digits: true,
+                    minlength: 10,
+                    maxlength: 10
+                },
+                marital_status: "required",
+                passout_year: "required",
+                course: "required",
+                company: "required",
+                designation: "required",
+                uan: "required",
+                address: "required",
+                pan_aadhar: "required",
+                refer_by: "required",
+                referer_mobile: {
+                    required: true,
+                    digits: true,
+                    minlength: 10,
+                    maxlength: 10
+                },
+                placement: "required",
+                currently_working: "required",
+                profession: "required",
+                pf: "required",
+                form16: "required",
+                dob: "required",
+                duration: {
+                    required: true,
+                    durationFormat: true
+                }
+            },
+            messages: {
+                name: "Please enter your name",
+                email: {
+                    required: "Please enter your email",
+                    email: "Please enter a valid email address"
+                },
+                education: "Please enter your Educational Qualification",
+                mobile: {
+                    required: "Please enter your Contact number",
+                    digits: "Only numbers allowed",
+                    minlength: "Enter a 10-digit number",
+                    maxlength: "Enter a 10-digit number"
+                },
+                passout_year: "Please enter your Passout year",
+                course: "Please Select your Course",
+                company: "Please enter your Previous Company",
+                designation: "Please enter your Designation",
+                uan: "Please enter your UAN Number",
+                address: "Please enter your address",
+                pan_aadhar: "Please enter your Pan or Aadhar Number",
+                refer_by: "Please enter your Referer By Name",
+                marital_status: "Please select your marital status",
+                placement: "Please select an option for Placement",
+                currently_working: "Please select if you are currently working",
+                profession: "Please select your profession",
+                pf: "Please select PF option",
+                form16: "Please select Form 16 option",
+                referer_mobile: {
+                    required: "Please enter your Refer by Mobile number",
+                    digits: "Only numbers allowed",
+                    minlength: "Enter a 10-digit number",
+                    maxlength: "Enter a 10-digit number"
+                },
+                dob: "Please enter your Date of Birth",
+                duration: {
+                    required: "Please enter the duration",
+                    durationFormat: "Enter duration in 'YYYY-MM-DD to YYYY-MM-DD' format"
+                }
+            },
+            errorPlacement: function (error, element) {
+                if (element.is(":radio")) {
+                    error.appendTo(element.parent().parent());
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            submitHandler: function (form) {
+                let formData = new FormData(form);
+                let submitButton = $("button[type='submit']");
+
+                // Disable the submit button to prevent multiple clicks
+                submitButton.prop("disabled", true);
+
+                fetch("/api/submit-enquiry/", {
+                    method: "POST",
+                    body: JSON.stringify(Object.fromEntries(formData)),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === "error") {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: data.message
+                            });
+                            // Enable submit button if an error occurs
+                            submitButton.prop("disabled", false);
+                        } else {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Success!",
+                                text: data.message
+                            }).then(() => {
+                                // Prevent user from re-submitting the form
+                                submitButton.prop("disabled", true);
+                                window.location.href = "/"; // Redirect to home page
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Email or Mobile number already exists!"
+                        });
+                        // Enable submit button again if an error occurs
+                        submitButton.prop("disabled", false);
+                    });
+
+                return false; // Prevent form from reloading
+            }
+
+        });
+    });
+</script>
+
+{% endblock content %}
