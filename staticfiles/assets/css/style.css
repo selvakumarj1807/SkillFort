@@ -15017,7 +15017,7 @@ svg.feather {
   line-height: 0;
 }
 .header .header-left .logo img {
-  width: 220px;
+  width: 280px;
 }
 @media (max-width: 991.96px) {
   .header .header-left .logo {
@@ -17048,7 +17048,7 @@ body.mini-sidebar.expand-menu .sidebar .sidebar-menu > ul > li.submenu-open ul l
   border-bottom: 1px solid #E6EAED;
 }
 .sidebar .sidebar-logo .logo img {
-  width: 220px;
+  width: 280px;
 }
 .sidebar .sidebar-logo .logo-small {
   display: none;
